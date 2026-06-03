@@ -1,0 +1,14 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if (len(s)!=len(t)):
+            return False
+        freq = [0]*256
+        for c in s:
+            freq[ord(c)]+=1
+        for c in t:
+            freq[ord(c)]-=1
+
+        for val in freq:
+            if val!=0:
+                return False
+        return True
